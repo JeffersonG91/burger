@@ -1,4 +1,4 @@
-var connection = require("./connection.js");
+const connection = require("./connection.js");
 
 function printQuestionMarks(num) {
   var arr = [];
@@ -21,7 +21,7 @@ function objToSql(ob) {
   return arr.toString();
 }
 
-var orm = {
+const orm = {
   all: function(tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
     connection.query(queryString, function(err, result) {
@@ -33,7 +33,7 @@ var orm = {
   },
 
   create: function(table, cols, vals, cb) {
-    var queryString = "INSERT INTO " + table;
+    const queryString = "INSERT INTO " + table;
 
     queryString += " (";
     queryString += cols.toString();
@@ -53,7 +53,7 @@ var orm = {
   },
 
   update: function(table, objColVals, condition, cb) {
-    var queryString = "UPDATE " + table;
+    const queryString = "UPDATE " + table;
 
     queryString += " SET ";
     queryString += objToSql(objColVals);
